@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+	{% for journal in journals.items %}
+		<article class="media content-section">
+  		<div class="media-body">
+    		<div class="article-metadata">
+          <div class="article-top">
+            <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + journal.author.image_file) }}">
+          </div>
+          <div class="article-top">
+    			 <a class="mr-2" href="{{ url_for('users.user_journals', username=journal.author.username) }}">{{ journal.author.username }}</a>
+          </div>
+          <div class="article-top">
+    			 <small class="text-muted">{{ journal.date_posted.strftime('%Y-%m-%d') }}</small>
+          </div>
+          <div class="article-top pull-right">
+            <h2 id="journal-title"><a class="article-title" href="{{ url_for('journals.journal', journal_id=journal.id) }}">{{ journal.title }}</a></h2>
+          </div>
+    		</div>
+    		<p class="article-content">{{ journal.content }}</p>
+  		</div>
+		</article>
+	{% endfor %}
+  <div id="paginator">
+    {% for page_num in journals.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+      {% if page_num %}
+        {% if journals.page == page_num %}
+          <div><a class="btn btn-success mb-4" href="{{ url_for('main.alljournals', page=page_num) }}">{{ page_num }}</a></div>
+        {% else %}
+          <div><a class="btn btn-info mb-4" href="{{ url_for('main.alljournals', page=page_num) }}">{{ page_num }}</a></div>
+        {% endif %}
+      {% else %}
+        <div id="ellipses">...</div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endblock content %}
