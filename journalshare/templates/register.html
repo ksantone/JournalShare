@@ -8,10 +8,10 @@
 	    <!-- Bootstrap CSS -->
 	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 	    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
-		<title>JournalShare - { title }</title>
+		<title>JournalShare</title>
 	</head>
 	<body>
-	<div class="login-box register-box">
+	<div class="register-box">
 		<img src="static/images/book.png" class="book">
 		<h2>JournalShare</h2>
 		<form method="POST" action="">
@@ -69,7 +69,7 @@
 					{% endif %}
 				</div>
 			<div class="form-group">
-				{{ form.submit(class="btn btn-info") }}
+				{{ form.submit(type="submit", id="sign-up") }}
 			</div>
 		</form>
 	</div>

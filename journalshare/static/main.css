@@ -103,25 +103,35 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 350px;
-  height: 440px;
-  padding: 80px 40px;
+  padding: 70px 40px;
   box-sizing: border-box;
   background: rgba(0,0,0,0.5);
   z-index: 999;
 }
 
 .register-box {
-  height: 580px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  padding-top: 70px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  box-sizing: border-box;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
 }
 
-.login-box p {
+.login-box p, .register-box p {
   margin: 0;
   padding: 0;
   font-weight: bold;
   color: #fff;
 }
 
-.login-box input {
+.login-box input, .register-box input {
   width: 100%;
   margin-bottom: 20px;
 }
@@ -134,7 +144,9 @@ h2:not(#journal-title) {
 }
 
 .login-box input[type="text"],
-.login-box input[type="password"]
+.login-box input[type="password"],
+.register-box input[type="text"],
+.register-box input[type="password"]
 {
   border: none;
   border-bottom: 1px solid #fff;
@@ -160,6 +172,20 @@ h2:not(#journal-title) {
   border-radius: 20px;
 }
 
+.register-box input[id="sign-up"]
+{
+  margin-left: 9px;
+  border: none;
+  outline: none;
+  width: 240px;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+  background: #ff267e;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
 .login-box input[type="submit"]:hover,
 .login-box input[type="button"]:hover,
 .register-box input[type="submit"]:hover
@@ -169,6 +195,13 @@ h2:not(#journal-title) {
 }
 
 .login-box a {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.register-box a {
   color: #fff;
   font-size: 14px;
   font-weight: bold;
@@ -196,6 +229,10 @@ h2:not(#journal-title) {
   margin-bottom: 20px;
 }
 
+.navbar-header {
+  min-height: 110px;
+}
+
 #logo {
   font-size: 32px;
   background: transparent;
@@ -209,6 +246,10 @@ h2:not(#journal-title) {
   font-size: 17px;
   margin-top: 30px;
   color: #fff;
+}
+
+#nav-items:hover {
+  text-decoration: underline;
 }
 
 .navbar-toggle {
@@ -264,12 +305,16 @@ h2:not(#journal-title) {
     height: 20px;
   }
 
-}
-
-@media only screen and (max-width: 580px) {
-
   #logo {
     margin-left: 35px;
+  }
+
+  #nav-items {
+    font-size: 17px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #fff;
   }
 
 }
