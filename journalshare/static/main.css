@@ -257,6 +257,13 @@ h2:not(#journal-title) {
   margin-right: 45px;
 }
 
+/* Reset password */
+#reset-password {
+  margin-top: 240px;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
 /* Posts styling */
 #my-journals-header #journals-header-items{
   display: inline-block;

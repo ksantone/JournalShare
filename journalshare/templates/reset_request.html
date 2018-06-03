@@ -1,27 +1,41 @@
-{% extends "layout.html" %}
-{% block content %}
-	<div class="content-section">
-		<form method="POST" action="">
-			{{ form.hidden_tag() }}
-			<fieldset class="form-group">
-				<legend class="border-bottom mb-4">Reset Password</legend>
+<!doctype html>
+<html>
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+		<link rel="shortcut icon" href="{{ url_for('static', filename='images/book.png') }}">
+ 		<title>JournalShare</title>
+	</head>
+	<body>
+		<div class="content-section" id="reset-password">
+			<form method="POST" action="">
+				{{ form.hidden_tag() }}
+				<fieldset class="form-group">
+					<legend class="border-bottom mb-4">Reset Password</legend>
+					<div class="form-group">
+						{{ form.username.label(class="form-control-label") }}
+						{% if form.username.errors %}
+							{{ form.username(class="form-control form-control-lg is-invalid")}}
+							<div class="invalid-feedback">
+								{% for error in form.username.errors %}
+									<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+						{% else %}
+							{{ form.username(class="form-control form-control-lg") }}
+						{% endif %}
+					</div>
+				</fieldset>
 				<div class="form-group">
-					{{ form.username.label(class="form-control-label") }}
-					{% if form.username.errors %}
-						{{ form.username(class="form-control form-control-lg is-invalid")}}
-						<div class="invalid-feedback">
-							{% for error in form.username.errors %}
-								<span>{{ error }}</span>
-							{% endfor %}
-						</div>
-					{% else %}
-						{{ form.username(class="form-control form-control-lg") }}
-					{% endif %}
+					{{ form.submit(class="btn btn-info") }}
 				</div>
-			</fieldset>
-			<div class="form-group">
-				{{ form.submit(class="btn btn-outline-info") }}
-			</div>
-		</form>
-	</div>
-{% endblock content %}
+			</form>
+		</div>
+	</body>
+</html>
