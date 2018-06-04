@@ -244,10 +244,15 @@ h2:not(#journal-title) {
 
 nav .navbar-nav li a{
   color: white !important;
+  margin-right: 10px;
 }
 
 nav .navbar-nav li a:hover {
   text-decoration: underline;
+}
+
+#navbar-items {
+  margin-right: 25px;
 }
 
 .navbar-toggler {
@@ -276,6 +281,9 @@ nav .navbar-nav li a:hover {
   margin-top: 12px;
   float: right;
 }
+
+/* Update Account */
+
 
 @media only screen and (max-width: 1112px) {
 

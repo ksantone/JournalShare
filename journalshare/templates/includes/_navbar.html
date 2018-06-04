@@ -7,6 +7,7 @@
 		<ul class="navbar-nav" id="navbar-items">
 		    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.alljournals') }}">All Journal Entries</a></li>
 		    <li class="nav-item"><a class="nav-link" href="{{ url_for('users.user_journals', username=current_user.username) }}">My Journal</a></li>
+		    <li class="nav-item"><a class="nav-link" href="{{ url_for('users.account', username=current_user.username) }}">My Account</a></li>
 		    <li class="nav-item"><a class="nav-link" href="{{ url_for('users.logout') }}">Logout</a></li>
 		</ul>
 	</div>
