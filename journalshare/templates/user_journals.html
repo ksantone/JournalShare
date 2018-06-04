@@ -4,14 +4,13 @@
     <div id="journals-header-items">
       <h1 id="journals-by">Journal Entries by {{ user.username }}</h1>
     </div>
-    <div id="journals-header-items" class="pull-right">
-      <div id="button-spacing"></div>
+    <div class="add-journal" id="journals-header-items">
         {% if current_user.username == user.username %}
-          <a id="add-journal" href="{{ url_for('journals.new_journal') }}"><button type="button" class="btn btn-success">Add Journal Entry</button></a>
+          <a href="{{ url_for('journals.new_journal') }}"><button type="button" class="btn btn-success">Add Journal Entry</button></a>
         {% endif %}
     </div>
   </div>
-  <hr>
+  <hr id="journal-separator">
 	{% for journal in journals.items %}
 		<article class="media content-section">
   		<div class="media-body">
@@ -29,7 +28,7 @@
             <h2 id="journal-title"><a class="article-title" href="{{ url_for('journals.journal', journal_id=journal.id) }}">{{ journal.title }}</a></h2>
           </div>
     		</div>
-    		<p class="article-content">{{ journal.content }}</p>
+    		<p class="article-content">{{ journal.content|truncate(80) }}</p>
   		</div>
 		</article>
 	{% endfor %}

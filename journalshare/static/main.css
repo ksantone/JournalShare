@@ -271,12 +271,10 @@ nav .navbar-nav li a:hover {
   padding-left: 40px;
 }
 
-#button-spacing {
-  height: 33px;
-}
-
-#add-journal {
-  margin-right: 44px;
+.add-journal {
+  margin-right: 60px;
+  margin-top: 12px;
+  float: right;
 }
 
 @media only screen and (max-width: 1112px) {

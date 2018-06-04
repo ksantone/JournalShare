@@ -17,7 +17,7 @@
             <h2 id="journal-title"><a class="article-title" href="{{ url_for('journals.journal', journal_id=journal.id) }}">{{ journal.title }}</a></h2>
           </div>
     		</div>
-    		<p class="article-content">{{ journal.content }}</p>
+    		<p class="article-content">{{ journal.content|truncate(80) }}</p>
   		</div>
 		</article>
 	{% endfor %}
