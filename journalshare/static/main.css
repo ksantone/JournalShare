@@ -224,7 +224,7 @@ h2:not(#journal-title) {
 
 /* Navbar styling */
 #my-nav {
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.5)!important;
   min-height: 110px;
   margin-bottom: 20px;
 }
@@ -238,23 +238,20 @@ h2:not(#journal-title) {
   background: transparent;
   border: none;
   color: #fff;
-  padding-top: 30px;
-  padding-right: 40px;
+  padding-top: 0;
+  padding-left: 40px;
 }
 
-#nav-items {
-  font-size: 17px;
-  margin-top: 30px;
-  color: #fff;
+nav .navbar-nav li a{
+  color: white !important;
 }
 
-#nav-items:hover {
+nav .navbar-nav li a:hover {
   text-decoration: underline;
 }
 
-.navbar-toggle {
-  margin-top: 35px;
-  margin-right: 45px;
+.navbar-toggler {
+  margin-right: 25px;
 }
 
 /* Reset password */
@@ -312,9 +309,6 @@ h2:not(#journal-title) {
     height: 20px;
   }
 
-  #logo {
-    margin-left: 35px;
-  }
 
   #nav-items {
     font-size: 17px;
@@ -322,6 +316,10 @@ h2:not(#journal-title) {
     margin-bottom: 15px;
     text-align: center;
     color: #fff;
+  }
+
+  nav .navbar-nav li a{
+    text-align: center;
   }
 
 }

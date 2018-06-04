@@ -12,7 +12,7 @@ journals = Blueprint('journals', __name__)
 def new_journal():
 	form = JournalForm()
 	if form.validate_on_submit():
-		journal = Journal(title=form.title.data, content=form.content.data, private=True if request.form['privacy_setting']=='on' else False, author=current_user)
+		journal = Journal(title=form.title.data, content=form.content.data, private=False if request.form['privacy_setting']=='public' else True, author=current_user)
 		db.session.add(journal)
 		db.session.commit()
 		flash('Your journal entry has been created!', 'success')
@@ -45,7 +45,7 @@ def update_journal(journal_id):
 @journals.route("/journal/<int:journal_id>/delete", methods=['POST'])
 @login_required
 def delete_journal(journal_id):
-	journal = journal.query.get_or_404(journal_id)
+	journal = Journal.query.get_or_404(journal_id)
 	if journal.author != current_user:
 		abort(403)
 	db.session.delete(journal)

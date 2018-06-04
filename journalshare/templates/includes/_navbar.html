@@ -1,20 +1,13 @@
-<nav id="my-nav" class="navbar navbar-default">
-	<div class="container">
-		<div class="navbar-header">
-		    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-controls="navbar">
-		    	<span class="sr-only">Toggle navigation</span>
-        		<span class="icon-bar"></span>
-        		<span class="icon-bar"></span>
-        		<span class="icon-bar"></span>
-		    </button>
-		    <a href="{{ url_for('main.home') }}"><button id="logo">JournalShare</button></a>
-		</div>
-	    <div id="navbar" class="collapse navbar-collapse">
-	        <ul class="nav navbar-nav navbar-right">
-	          	<li><a href="{{ url_for('main.alljournals') }}" id="nav-items">All Journal Entries</a></li>
-	          	<li><a href="{{ url_for('users.user_journals', username=current_user.username) }}" id="nav-items">My Journal</a></li>
-	          	<li><a href="{{ url_for('users.logout') }}" id="nav-items">Logout</a></li>
-	        </ul>
-	    </div>
+<nav id="my-nav" class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+	<a class="navbar-brand" href="{{ url_for('main.home') }}"><button id="logo">JournalShare</button></a>
+	<button class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#collapse_target">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse justify-content-end" id="collapse_target">
+		<ul class="navbar-nav" id="navbar-items">
+		    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.alljournals') }}">All Journal Entries</a></li>
+		    <li class="nav-item"><a class="nav-link" href="{{ url_for('users.user_journals', username=current_user.username) }}">My Journal</a></li>
+		    <li class="nav-item"><a class="nav-link" href="{{ url_for('users.logout') }}">Logout</a></li>
+		</ul>
 	</div>
 </nav>

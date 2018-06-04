@@ -1,22 +1,22 @@
 {% extends "layout.html" %}
 {% block content %}
-	<article class="media content-section">
+  <article class="media content-section">
     <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + journal.author.image_file) }}">
-  	<div class="media-body">
-    	<div class="article-metadata">
-    		<a class="mr-2" href="{{ url_for('users.user_journals', username=journal.author.username) }}">{{ journal.author.username }}</a>
-    		<small class="text-muted">{{ journal.date_posted.strftime('%Y-%m-%d') }}</small>
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="{{ url_for('users.user_journals', username=journal.author.username) }}">{{ journal.author.username }}</a>
+        <small class="text-muted">{{ journal.date_posted.strftime('%Y-%m-%d') }}</small>
         {% if journal.author == current_user %}
           <div>
             <a class="btn btn-info btn-sm mt-1 mb-1" href="{{ url_for('journals.update_journal', journal_id=journal.id) }}">Update</a>
             <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
           </div>
         {% endif %}
-    	</div>
-    	<h2 id="journal-title">{{ journal.title }}</h2>
-    	<p class="article-content">{{ journal.content }}</p>
-  	</div>
-	</article>
+      </div>
+      <h2 id="journal-title">{{ journal.title }}</h2>
+      <p class="article-content">{{ journal.content }}</p>
+    </div>
+  </article>
 
   <!-- Modal -->
   <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -27,9 +27,6 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
-        <div class="modal-body">
-          ...
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
