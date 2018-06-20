@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background: url('images/nature.jpg') no-repeat left top;
+  background: url('images/nature.jpg') 100% 100%;
   background-size: 100% 100%;
   font-family: sans-serif;
 }
